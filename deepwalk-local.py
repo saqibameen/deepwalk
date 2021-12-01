@@ -2,9 +2,10 @@ import numpy as np
 from numpy.linalg import norm
 import os
 
-def get_similarity_matrix(adj_matrix , threshold=0.0001):
+def get_similarity_matrix(path_to_dataset , threshold=0.0001):
     threshold = threshold
-    path = './temp'
+    path = path_to_dataset
+    adj_matrix = np.loadtxt(path, dtype=int)
 
     # Transform to adjlist for deepwalk.
     for i in range(len(adj_matrix)):
